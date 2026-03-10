@@ -25,6 +25,9 @@ public class StorageImpl<K, V> implements Storage<K, V> {
             values[index] = value;
             return;
         }
+        if (size == MAX_CAPACITY) {
+            throw new RuntimeException("Storage is full");
+        }
         keys[size] = key;
         values[size] = value;
         size++;
